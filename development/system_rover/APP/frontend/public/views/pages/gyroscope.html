@@ -1,0 +1,56 @@
+<!-- <span>Roll:</span>{{gyroscope.roll}}<br>
+<span>Pitch:</span>{{gyroscope.pitch}}<br>
+<span>Yaw:</span>{{gyroscope.yaw}}
+
+<section class="container1">
+  <div id="card">
+    <figure class="back" ng-style="figureStyle1">2</figure>
+  </div>
+  <div id="card">
+    <figure class="back" ng-style="figureStyle2">2</figure>
+  </div>
+  <div id="card">
+    <figure class="back" ng-style="figureStyle3">2</figure>
+</div>
+</section> -->
+
+<div>
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <div class="col-md-12 text-align-center">Asse X</div>
+            <div class="col-md-12 text-align-center">{{fusionPose.roll}}</div>
+            <div class="col-md-12">
+                <div id="card">
+                  <img src="imgs/arrow.png" ng-style="figureStyle1"></img>
+                </div>
+            </div>
+            <div class="graphics col-md-12">
+                <linechart data="datax" options="options"></linechart>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12 text-align-center">Asse Y</div>
+            <div class="col-md-12 text-align-center">{{fusionPose.pitch}}</div>
+            <div class="col-md-12">
+                <div id="card">
+                  <img src="imgs/arrow.png" class="" ng-style="figureStyle2"></img>
+                </div>
+            </div>
+            <div class="graphics col-md-12">
+                <linechart data="datay" options="options"></linechart>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12 text-align-center">Asse Z</div>
+            <div class="col-md-12 text-align-center">{{fusionPose.yaw}}</div>
+            <div class="col-md-12">
+                <div id="card">
+                  <img src="imgs/arrow.png" ng-style="figureStyle3"></img>
+                </div>
+            </div>
+            <div class="graphics col-md-12">
+                <linechart data="dataz" options="options"></linechart>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+*.DS_Store
+*node_modules*
+**/public/libs/
+**/public/libs/**
+**/api/log/**
+**/.idea/**
+**/.bower-cache/**
+**/.bower-registry/**
+
+*/public/libs/*
+/development/directly/**
+/development/directly_master/**
