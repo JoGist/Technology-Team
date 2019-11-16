@@ -33,6 +33,7 @@ def main():
     BaseManager.register('Rover', Rover)
     manager = BaseManager()
     manager.start()
+    #initialize multiprocessing library
 
     rover = manager.Rover()
 

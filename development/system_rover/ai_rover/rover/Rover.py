@@ -7,7 +7,7 @@ from socketIO_client import SocketIO, LoggingNamespace
 import time
 import random
 
-class Rover():
+class Rover(): #constructor
     def __init__(self):
         self.typeTask = 1
         self.degree_target = 0
@@ -19,6 +19,7 @@ class Rover():
         self.index = 0
         self.speed = 0
         self.speedLimit = 250
+        #sensors libraries
         self.imu = Imu()
         self.distance_sensor = DistanceSensor()
         self.pantilt = Pantilt()
@@ -206,6 +207,7 @@ class Rover():
         self.pantilt.setOrientation(-pantilt_orientation,0);
 
 
+    ''' junk function
     def init_YesOrNo(self):
         lol = 0
     def execYesOrNo(self):
@@ -259,6 +261,7 @@ class Rover():
         time.sleep(0.2)
         self.pantilt.setOrientation(0, 0)
         self.typeTask = 1
+        '''
 
     def execTask(self):
         # print('task',self.typeTask)
@@ -274,12 +277,14 @@ class Rover():
             self.execPantiltOrientation()
         elif self.typeTask == 6:
             self.execPantitlFollowOrientation()
+        '''
         elif self.typeTask == 7:
             self.execYesOrNo()
         elif self.typeTask == 10:
             self.execYes()
         elif self.typeTask == 11:
             self.execNo()
+        '''
     #End Tasks
 
 
@@ -294,6 +299,7 @@ class Rover():
     def on_aaa_response(self, *args):
         print('on_aaa_response', args)
 
+        #data from ground station
     def on_task_response(self,*args):
         # print('task_rover',args)
         for arg in args:
