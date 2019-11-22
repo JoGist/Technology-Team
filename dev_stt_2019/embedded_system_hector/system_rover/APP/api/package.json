@@ -1,0 +1,26 @@
+{
+  "name": "devstudy",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^1.3.0",
+    "bcrypt": "^0.8.3",
+    "body-parser": "^1.13.2",
+    "compression": "^1.5.1",
+    "connect-multiparty": "^1.2.5",
+    "debug": "^2.2.0",
+    "express-jwt": "^3.0.1",
+    "express-session": "^1.11.3",
+    "jsonwebtoken": "^5.0.2",
+    "pi-gpio": "0.0.8",
+    "python-shell": "^0.4.0",
+    "serve-favicon": "^2.3.0",
+    "underscore": "^1.8.3",
+    "zerorpc": "*",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {}
+}

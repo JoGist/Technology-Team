@@ -1,0 +1,110 @@
+@media (min-width: 768px) {
+  .container {
+    width: 575px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 800px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+}
+
+* {
+	color : #333;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	/*background: #FCFCFC;*/
+}
+
+body {
+	background: #FFF;
+}
+
+.circle{
+	border-radius: 100%;
+	height: 100px;
+	width: 100px;
+	margin: 10px;
+	float: left;
+}
+
+.border-style{
+	border-style: solid
+}
+
+.border-width{
+	border-width: 1px;
+}
+
+.border-color-green{
+	border-color: green;
+}
+
+.border-color-yellow{
+	border-color: yellow;
+}
+.border-color-red{
+	border-color: red;
+}
+
+.background-green{
+	background: green;
+}
+.background-yellow{
+	background: yellow;
+}
+.background-red{
+	background: red;
+}
+
+.handOver {
+	cursor:pointer;
+}
+.text-align-center {
+    text-align: center;
+}
+
+#card {
+  width: 100%;
+  /*height: 100%;*/
+  float: left;
+  margin: 40px 0;
+  /*position: absolute;*/
+  /*transform-style: preserve-3d;*/
+  /*transition: transform 1s;*/
+  text-align: center;
+}
+
+#card figure {
+  margin: 0;
+  /*display: block;*/
+  /*position: absolute;*/
+  width: 10px;
+ height: 100px;
+ margin: auto;
+  backface-visibility: hidden;
+}
+#card img {
+  margin: 0;
+  /*display: block;*/
+  /*position: absolute;*/
+  width: 50px;
+ height: 100px;
+ margin: auto;
+  backface-visibility: hidden;
+}
+
+#card .front {
+  background: red;
+}
+#card .back {
+  background: red;
+}
+
+.graphics {
+    height: 400px;
+}

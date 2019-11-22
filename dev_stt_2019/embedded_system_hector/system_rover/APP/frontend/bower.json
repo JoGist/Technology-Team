@@ -1,0 +1,11 @@
+{
+  "name": "mean",
+  "version": "0.4.0",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "~1.4.*",
+    "angular-route": "~1.4.*",
+    "angular-resource": "~1.4.*",
+    "d3": "^3.5.16"
+  }
+}
