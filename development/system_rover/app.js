@@ -15,8 +15,7 @@ app.all('/*', function(req, res, next) {
 	var origin = 'http://www.' + global.domainName;
 	if (!global.subdomainDisabled && (
 		req.headers.origin === 'http://api.' + global.domainName ||
-		req.headers.origin === 'http://www.' + global.domainName) ||
-		req.headers.origin === 'http://www.stunelp.com') {
+		req.headers.origin === 'http://www.' + global.domainName)) {
 		origin = req.headers.origin;
 	}
 
@@ -32,23 +31,14 @@ app.all('/*', function(req, res, next) {
 	}
 });
 
-if (global.subdomainDisabled) {
-	app
-		.use(vhost(global.domainName, function(req, res) {
-			res.writeHead(303, {'Location': 'http://www.' + global.domainName + req.url});
-			res.end();
-		}))
-		.use('/api',		require('./APP/api/app')(io))
-		.use('/',			require('./APP/frontend/app'));
-} else {
-	app
-		.use(vhost(global.domainName, function(req, res) {
-			res.writeHead(303, {'Location': 'http://www.' + global.domainName + req.url});
-			res.end();
-		}))
-		.use(vhost('www.' + global.domainName, require('./APP/frontend/app')))
-		.use(vhost('api.' + global.domainName, require('./APP/api/app')(io)));
-}
+app
+	.use(vhost(global.domainName, function(req, res) {
+		res.writeHead(303, {'Location': 'http://www.' + global.domainName + req.url});
+		res.end();
+	}))
+	.use('/api',		require('./APP/api/app')(io))
+	.use('/',			require('./APP/frontend/app'));
+
 
 app.set('port', 80);
 

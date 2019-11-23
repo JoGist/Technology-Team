@@ -1,36 +1,12 @@
 'use strict';
 
-global.passwordSalt = 'LABMANP';
-
-global.secretsSalt = {
-	storekeeper: 'LABSTRMANP',
-	user: 'LABUSRMANP',
-	admin: 'ADMANP'
-};
-
-global.pathRoot = __dirname + '/';
-
 var express = require('express'),
 	app = express();
-
-	//mongoose = require('mongoose'),
-	//db = mongoose.connect('mongodb://185.17.107.27:27017/labeloop_new'); // connect to our database
-	 //db = mongoose.connect('mongodb://localhost:27017/devstudy'); // connect to our database
-
 
 
 require('./config/express.js')(app);
 
-//db.connection.on('error', console.error.bind(console, 'connection error:'));
-/*
-	INCLUDE SERVER MODULE
-
-*/
-
-
 var io = require('socket.io')(3001);
-
-
 
 var router = express.Router();
 var serverModulesPath = './server_modules/';
