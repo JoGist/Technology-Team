@@ -1,0 +1,373 @@
+<div id="home">
+	<div class="container no-padding">
+		<div class="container no-padding" >
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 no-padding navbox">
+					<div class="col-md-12 title">
+						Ground Control System
+					</div>
+					<div style="position:absolute; right:0; padding: 10px; margin:10px; background:red; border-radius:10px;" ng-show="!link">
+					</div>
+					<div style="position:absolute; right:0; padding: 10px; margin:10px; background:green; border-radius:10px;" ng-if="link">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 col-xs-12 box padding-10">
+					<div class="col-md-12 col-xs-12 no-padding">
+						<div class="col-md-2 col-xs-12 padding10">
+							<div class="col-md-12 col-xs-12 no_padding command" ng-class="{'handOver':hoveringOnlyData,'buttonSelected':task==1}" ng-mouseenter="hoveringOnlyData=true"ng-mouseleave="hoveringOnlyData=false" ng-click="setOnlyData()">
+								Only data
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-12 padding10">
+							<!-- <input type="text" name="input" class="col-md-4" ng-scope="degree_target.value"  style="float:right; top:0"/> -->
+							<div class="col-md-12 col-xs-12 no-padding command">
+								<div class="col-md-6 col-xs-12 no-padding" ng-class="{'handOver':hoveringDegreeTarget,'buttonSelected':task==2}" ng-mouseenter="hoveringDegreeTarget=true" ng-mouseleave="hoveringDegreeTarget=false" style="float:left; color:white" ng-click="setAzimutZero(degree_target)">Degree target</div>
+								<div class="col-md-6 col-xs-12 no-padding">
+									<box-input ng-model="degree_target" style="width=10px;"></box-input>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2 col-xs-12 padding10">
+							<div class="col-md-12 col-xs-12 no-padding command" ng-class="{'handOver':handOverStartAndStop,'buttonSelected':task==3}" ng-mouseenter="handOverStartAndStop=true" ng-mouseleave="handOverStartAndStop=false" ng-click="setStartAndStop()">
+								Start and Stop
+							</div>
+						</div>
+						<div class="col-md-2 col-xs-12 padding10">
+							<div class="col-md-12 col-xs-12 no-padding command" ng-class="{'handOver':hoveringScanDistances,'buttonSelected':task==4}" ng-mouseenter="hoveringScanDistances=true" ng-mouseleave="hoveringScanDistances=false" ng-click="openScanDistancesModal()">
+								Scan Distances
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-12 padding10">
+							<!-- <input type="text" name="input" class="col-md-4" ng-scope="degree_target.value"  style="float:right; top:0"/> -->
+							<div class="col-md-12 col-xs-12 no-padding command" >
+								<div class="col-md-3 col-xs-12 no-padding" ng-class="{'handOver':hoveringPantilt,'buttonSelected':task==5}"ng-mouseenter="hoveringPantilt=true"ng-mouseleave="hoveringPantilt=false" style="color:white" ng-click="setPantiltOrientation(pantilt_degree_target_x,pantilt_degree_target_y)">Pantilt</div>
+								<div class="col-md-4 col-xs-12 no-padding">
+									<div class="col-md-4 col-xs-12 no-padding" style="color:white">x:</div>
+									<div class="col-md-8 col-xs-12 no-padding">
+										<box-input ng-model="pantilt_degree_target_x"></box-input>
+									</div>
+								</div>
+								<div class="col-md-4 col-xs-12 no-padding">
+									<div class="col-md-4 col-xs-12 no-padding" style="color:white"> y:</div>
+									<div class="col-md-8 col-xs-12 no-padding">
+										<box-input ng-model="pantilt_degree_target_y"></box-input>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 col-xs-12 no-padding navbox title" ng-class="{'handOver':hoveringLevelBattery}" ng-mouseenter="hoveringLevelBattery=true" ng-mouseleave="hoveringLevelBattery=false" ng-click="viewLevelBattery();">
+						 Level Battery {{voltage}}
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12 padding-10">
+				<div class="col-md-12 col-xs-12 box video-container">
+					<div class="col-md-12 col-xs-12 no-padding title underlined">
+						Informazione ottica
+					</div>
+					<div class="col-md-12 col-xs-12 no-padding" style="padding: 10px 0px;">
+
+						<img class="col-md-12 col-xs-12 no-padding" style="border-radius:20px; width:100%; height:440px;" ng-src={{linkStreamRover}}></img>
+						<!-- <button class="button">Cambia Modalità Fotocamera</button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp; -->
+						<!-- <button class="button">Acquisisci Immagine</button></br></br> -->
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12 padding-10">
+				<div class="col-md-12 col-xs-12 box video-container">
+					<div class="col-md-12 col-xs-12 no-padding title underlined">
+						Compass {{fusionPose.yaw}}
+					</div>
+					<div class="col-md-12 col-xs-12 no-padding">
+						<div>
+							<img class="col-md-12 col-xs-12 no-padding" src="/imgs/compass.png" style="text-align:center; position:relative;"></img>
+							<img  src="/imgs/compass-needle.png" style="text-align:center;text-align: center;position: absolute;left: 25px;top: 26px;width: 400px;height: 400px;" ng-style="figureStyle3"></img>
+						</div>
+          			</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 col-xs-12 no-padding navbox title" ng-class="{'handOver':hoveringMap}" ng-mouseenter="hoveringMap=true" ng-mouseleave="hoveringMap=false" ng-click="viewMap();">
+						 Map Lon:{{mapData.position.lon}}  Lat:{{mapData.position.lat}}
+				</div>
+			</div>
+
+			<div class="col-md-12 col-xs-12 padding-10" ng-if="map_flag">
+				<!-- <div class="col-md-12 col-xs-12 no_padding command" ng-class="{'handOver':hoveringCoorChange,'buttonSelected':task==1}" ng-mouseenter="hoveringCoorChange=true"ng-mouseleave="hoveringCoorChange=false" ng-click="changeCoordinate()">
+						Change
+				</div> -->
+				<div class="col-md-12 col-xs-12 no-padding command" >
+					<div class="col-md-3 col-xs-12 no-padding" ng-class="{'handOver':hoveringTargetCoordinates,'buttonSelected':task==5}"ng-mouseenter="hoveringTargetCoordinates=true"ng-mouseleave="hoveringTargetCoordinates=false" style="color:white" ng-click="setTargetCoordinates(longitude,latitude)">Target Coordinates</div>
+					<div class="col-md-4 col-xs-12 no-padding">
+						<div class="col-md-4 col-xs-12 no-padding" style="color:white">Longitude:</div>
+						<div class="col-md-8 col-xs-12 no-padding">
+							<box-input ng-model="longitude"></box-input>
+						</div>
+					</div>
+					<div class="col-md-4 col-xs-12 no-padding">
+						<div class="col-md-4 col-xs-12 no-padding" style="color:white"> Latitude:</div>
+						<div class="col-md-8 col-xs-12 no-padding">
+							<box-input ng-model="latitude"></box-input>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-xs-12 box" style="padding: 20px">
+					 <tch-ol-map val="mapData"></tch-ol-map>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 col-xs-12 no-padding navbox title" ng-class="{'handOver':hoveringIMU}" ng-mouseenter="hoveringIMU=true" ng-mouseleave="hoveringIMU=false" ng-click="viewImu();">
+						 IMU - Inertial measurement unit
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="imu_flag">
+				<div class="col-md-12 col-xs-12 box">
+					<div class="col-md-12 col-xs-12 no-padding title underlined">
+						Accelerometer
+					</div>
+					<div class="col-md-12 body">
+						X: {{accelerometer.ax}}
+					</div>
+
+					<canvas id="line" class="chart chart-line" chart-data="data_accelerometer_x"
+						chart-labels="labels" chart-series="series" chart-options="options2"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+
+					<div class="col-md-12 body">
+						Y: {{accelerometer.ay}}
+					</div>
+					<canvas id="line" class="chart chart-line" chart-data="data_accelerometer_y"
+						chart-labels="labels" chart-series="series" chart-options="options2"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+
+					<div class="col-md-12 body">
+						Z: {{accelerometer.az}}
+					</div>
+					<canvas id="line" class="chart chart-line" chart-data="data_accelerometer_z"
+						chart-labels="labels" chart-series="series" chart-options="options2"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="imu_flag">
+				<div class="col-md-12 col-xs-12 box">
+					<div>
+						<div class="col-md-12 no-padding title underlined">
+							Gyroscope
+						</div>
+						<div class="col-md-12 body">
+							X: {{gyroscope.roll}}
+						</div>
+						<canvas id="line" class="chart chart-line" chart-data="data_gyroscope_x"
+							chart-labels="labels" chart-series="series" chart-options="options2"
+							chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+
+						<div class="col-md-12 body">
+							Y: {{gyroscope.pitch}}
+						</div>
+						<canvas id="line" class="chart chart-line" chart-data="data_gyroscope_y"
+							chart-labels="labels" chart-series="series" chart-options="options2"
+							chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+
+						<div class="col-md-12 body">
+							Z: {{gyroscope.yaw}}
+						</div>
+						<canvas id="line" class="chart chart-line" chart-data="data_gyroscope_z"
+							chart-labels="labels" chart-series="series" chart-options="options2"
+							chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="imu_flag">
+				<div class="col-md-12 box">
+					<div class="col-md-12 no-padding title underlined">
+						Compass
+					</div>
+					<div class="col-md-12 body">
+						X: {{compass.compass1}}
+					</div>
+					<canvas id="line" class="chart chart-line" chart-data="data_compass_x"
+						chart-labels="labels" chart-series="series" chart-options="optionsCompass1"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+					<div class="col-md-12 body">
+						Y: {{compass.compass2}}
+					</div>
+					<canvas id="line" class="chart chart-line" chart-data="data_compass_y"
+						chart-labels="labels" chart-series="series" chart-options="optionsCompass2"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+					<div class="col-md-12 body">
+						Z: {{compass.compass3}}
+					</div>
+					<canvas id="line" class="chart chart-line" chart-data="data_compass_z"
+						chart-labels="labels" chart-series="series" chart-options="optionsCompass3"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+				</div>
+			</div>
+
+
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 no-padding navbox title" ng-class="{'handOver':hoveringDistanceSensorTitle}" ng-mouseenter="hoveringDistanceSensorTitle=true" ng-mouseleave="hoveringDistanceSensorTitle=false" ng-click="viewDistance();" >
+						 Distance sensor data
+				</div>
+			</div>
+
+			<div class="col-md-12 col-xs-12 padding-10" ng-if="distance_flag" ng-if="distance2_flag" style="padding: 0 50px;">
+				<div class="col-md-6 col-xs-12 padding">
+					<div class="col-md-12 col-xs-12 box">
+						<div class="col-md-12 no-padding title underlined">
+							Distance 1
+						</div>
+						<div class="col-md-12 col-xs-12 body" >
+							{{distance}}
+						</div>
+
+						<canvas id="line" class="chart chart-line" chart-data="data_distance"
+							chart-labels="labels" chart-series="series" chart-options="options"
+							chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12 padding">
+					<div class="col-md-12 col-xs-12 box">
+						<div class="col-md-12 no-padding title underlined">
+							Distance 2
+						</div>
+						<div class="col-md-12 col-xs-12 body" >
+							{{distance2}}
+						</div>
+
+						<canvas id="line" class="chart chart-line" chart-data="data_distance2"
+							chart-labels="labels" chart-series="series" chart-options="options2"
+							chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-12 col-xs-12 padding-10">
+				<div class="col-md-12 no-padding navbox title" ng-class="{'handOver':hoveringFusionTitle}" ng-mouseenter="hoveringFusionTitle=true" ng-mouseleave="hoveringFusionTitle=false" ng-click="viewFusion();" >
+						Fusion
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="fusion_flag">
+				<div class="col-md-12 col-xs-12 box">
+					<div class="col-md-12 col-xs-12 no-padding title underlined">
+						Roll
+					</div>
+					<div class="col-md-12 body">
+						X: {{fusionPose.roll}}
+					</div>
+
+					<canvas id="line" class="chart chart-line" chart-data="data_fusion_pose_roll"
+						chart-labels="labels" chart-series="series" chart-options="optionsFusion"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="fusion_flag">
+				<div class="col-md-12 col-xs-12 box">
+					<div>
+						<div class="col-md-12 no-padding title underlined">
+							Pitch
+						</div>
+						<div class="col-md-12 body">
+							X: {{fusionPose.pitch}}
+						</div>
+						<canvas id="line" class="chart chart-line" chart-data="data_fusion_pose_pitch"
+							chart-labels="labels" chart-series="series" chart-options="optionsFusion"
+							chart-dataset-override="datasetOverride" chart-click="onClick">
+						</canvas>
+
+					</div>
+					<!-- <linechart data="datax" options="options"></linechart> -->
+				</div>
+
+
+			</div>
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="fusion_flag">
+				<div class="col-md-12 box">
+					<div class="col-md-12 no-padding title underlined">
+						Yaw
+					</div>
+					<div class="col-md-12 body">
+						X: {{fusionPose.yaw}}
+					</div>
+					<canvas id="line" class="chart chart-line" chart-data="data_fusion_pose_yaw"
+						chart-labels="labels" chart-series="series" chart-options="optionsFusion"
+						chart-dataset-override="datasetOverride" chart-click="onClick">
+					</canvas>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-xs-12 padding-10" ng-if="false">
+				<div class="col-md-12 box">
+					<div class="col-md-12 no-padding title underlined">
+						Motors
+					</div>
+					<div class="col-md-12 body">
+						M1: {{motors.motor1}}
+					</div>
+					<div class="col-md-12 body">
+						M2: {{motors.motor2}}
+					</div>
+					<div class="col-md-12 body">
+						M3: {{motors.motor3}}
+					</div>
+					<div class="col-md-12 body">
+						M4: {{motors.motor4}}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12 padding-10" ng-if="false">
+				<div class="col-md-12 box">
+					<div class="col-md-12 no-padding title underlined">
+						<span class="col-md-8">Commands</span>
+						<input class="col-md-4" ng-scope="command" ng-keydown="key($event)"/>
+					</div>
+					<div class="col-md-4" style="margin-top: 45px;text-align: center;">
+						<div class="col-md-12 command">
+							Left
+						</div>
+					</div>
+					<div class="col-md-4 body">
+						<div class="col-md-12" style="text-align: center;padding:10px;">
+							<div class="col-md-12 command" ng-mousedown="mouseDownGo()" ng-mouseup="mouseUpGo()">
+								Up
+							</div>
+						</div>
+						<div class="col-md-12" style="text-align: center;padding:10px;">
+							<div class="col-md-12 command">
+								Down
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4" style="margin-top: 45px;text-align: center;">
+						<div class="col-md-12 command">
+							Right
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
