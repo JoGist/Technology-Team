@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+    <script>const socket = io();</script>           <!-- Non c'è bisogno di specificare l'indirizzo, siamo stati condotti a questo html dal server -->
+		<script src="send.js"></script>
+
+	</head>
+	<body>
+		<h1> Test invio dati Groundstation -> Rover <h1><br>
+		<input id="inputData" placeholder="Scrivi qui"></input>
+		<select id="selezione">
+			<option value="destra">Destra</option>
+			<option value="sinistra">Sinistra</option>
+		</select>
+		<p>Invia ad uno di questi rover online:</p>
+		<ul id="roverList">															<!-- Lista che si popola di bottoni per ogni rover con una connessione attiva con il server -->
+			<li>Nessuno</li>
+		</ul>
+	</body>
+</html>
