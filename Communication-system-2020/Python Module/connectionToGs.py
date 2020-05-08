@@ -1,6 +1,6 @@
 ## Per funzionare bisogna impostare l'avvio automatico allo startup del programma main in python con PRIVILEGI D'AMMINISTRATORE altrimenti non sempre trova l'ip
-from subprocess import PIPE, run
-import socketio             # unica libreria da installare tramite pip install "python-socketio[client]"
+from subprocess import PIPE, run # libreria built-in che permette di eseguire comandi bash da python
+import socketio             # libreria da installare tramite pip install "python-socketio[client]"
 import json                 # e' il modulo a gestire la conversione quindi JSON e' necessario qui
 rover = socketio.Client()   # un'istanza client
 
