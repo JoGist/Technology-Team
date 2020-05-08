@@ -1,6 +1,6 @@
 from connectionToGs import socket           # importa il modulo
 
-groundStation= socket("localhost",3000)     # di fatto esegue la init passandogli ip e porta
+groundStation= socket()                     # si connette alla groundstation con l'ip che ha trovato all'avvio e la porta standard
 
 obj={"campo1":0,                            # oggetto a caso
     "campo2":2,
