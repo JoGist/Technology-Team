@@ -1,0 +1,15 @@
+Per eseguire il SERVER:
+
+  server_old.js come dice il nome è vecchio e inutile
+
+  bisogna scaricare server.js in questa cartella e installare nodejs e i moduli socket.io e express
+  (breve guida: con terminale posizionarsi nella cartella dove si trova server.js e esguire 'npm init' e seguire la procedura.
+  Dopo, eseguire 'npm install socket.io --save' e 'npm install express --save'. Ora il server può essere avviato)
+
+  Nella cartella public c'è un esempio di groundstation 
+
+Per eseguire il MODULO su RASPBERRY:
+  in python module ci sta il modulo python e un esempio di programma che lo implementa
+  bisogna installare sulla raspberry la libreria socket.io e nmap tramite 'pip install "python-socketio[client]"' e 
+  'pip install python-nmap'. Infine ricordarsi sempre di eseguire il programma python con privilegi d'amministratore altrimenti non sempre 
+  si trova l'IP del server
